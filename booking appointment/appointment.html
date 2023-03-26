@@ -33,22 +33,18 @@
             .catch((err)=> {
                 console.log(err)
             })
-                //localStorage.setItem(obj.email,JSON.stringify(obj))
-                //showUserOnScreen(obj)
+                localStorage.setItem(obj.email,JSON.stringify(obj))
+                showUserOnScreen(obj)
             }
             window.addEventListener("DOMContentLoaded",() => {
-                const data=axios.get("https://crudcrud.com/api/65132c3e7936477ca4ed26186dae761a/appainmentData")
+                axios.get("https://crudcrud.com/api/65132c3e7936477ca4ed26186dae761a/appainmentData",obj)
                 .then((response)=> {
-                 //console.log(response)
+                 console.log(response)
             
-                for(var i=0; i< response.data.length; i++) {
-                    showNewUserOnScreen(response.data[i])
-                   }
                 })
-                .catch((error)=> {
-                    console.log(error)
+                .catch((err)=> {
+                    console.log(err)
                 })
-                console.log(data)
             })
             function showUserOnScreen(obj){
                 const parentElem = document.getElementById('listOfitems')
